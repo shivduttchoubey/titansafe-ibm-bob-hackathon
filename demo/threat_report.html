@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TitanSafe Report — TB-CASE-ELECTION-2026</title>
+<style>
+@page { size: A4; margin: 16mm 14mm; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 9.5pt;
+  color: #1a1a1a;
+  background: #fff;
+  line-height: 1.55;
+}
+/* cover */
+.cover { padding: 32px 0 24px; }
+.cover-logo { font-size: 26pt; font-weight: 900; color: #0d3b6e; letter-spacing: .06em; }
+.cover-sub { font-size: 11pt; color: #555; margin-top: 4px; }
+.cover-rule { border-top: 3px solid #0d3b6e; margin: 14px 0; }
+.cover-meta { border-collapse: collapse; width: 100%; margin-bottom: 12px; }
+.cover-meta td { padding: 4px 10px 4px 0; vertical-align: top; font-size: 9.5pt; }
+.cover-meta td:first-child { color: #666; width: 140px; font-weight: 600; }
+.cover-notice { font-size: 8.5pt; color: #666; border-top: 1px solid #ddd; padding-top: 10px; line-height: 1.5; }
+/* sections */
+.section { margin: 0 0 20px; }
+.sec-title {
+  font-size: 12.5pt; font-weight: 700; color: #0d3b6e;
+  border-bottom: 2px solid #0d3b6e; padding-bottom: 4px; margin-bottom: 10px;
+}
+.section p { margin: 5px 0; font-size: 9.5pt; }
+.section h4 { font-size: 9.5pt; color: #0d3b6e; margin: 10px 0 4px; font-weight: 700; }
+.section h5 { font-size: 8.5pt; color: #333; margin: 7px 0 3px; font-weight: 600; }
+.section ul, .section ol { padding-left: 16px; margin: 4px 0; }
+.section li { margin: 2px 0; font-size: 8.5pt; }
+/* tables */
+table { border-collapse: collapse; width: 100%; margin: 5px 0; }
+th { background: #0d3b6e; color: #fff; padding: 4px 7px; font-size: 8.5pt; text-align: left; font-weight: 600; }
+td { padding: 3px 7px; font-size: 8.5pt; border-bottom: 1px solid #e0e0e0; vertical-align: top; }
+tr:nth-child(even) td { background: #f7f9fc; }
+code { font-family: "Courier New", monospace; font-size: 8.5pt; color: #555; }
+/* threat block */
+.threat-header { display: flex; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px; }
+.kv-table { font-size: 8.5pt; margin-bottom: 10px; }
+.kv-table td:nth-child(odd) { color: #666; width: 100px; font-weight: 600; }
+.kv-table td:nth-child(even) { width: 110px; }
+/* two-col */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 8px 0; }
+/* page break */
+.page-break { page-break-after: always; }
+/* print trigger hint */
+@media screen {
+  body { background: #eef0f3; }
+  .page { background: #fff; max-width: 800px; margin: 20px auto; padding: 28px 32px; box-shadow: 0 2px 10px rgba(0,0,0,.15); }
+  #print-hint {
+    position: fixed; top: 12px; right: 16px; z-index: 999;
+    background: #0d3b6e; color: #fff; border: none; padding: 8px 18px;
+    font-size: 11pt; cursor: pointer; border-radius: 3px; font-family: inherit;
+  }
+  #print-hint:hover { background: #1556a0; }
+}
+@media print { body { background: #fff; } .page { padding: 0; box-shadow: none; } #print-hint { display: none; } }
+</style>
+</head>
+<body>
+<button id="print-hint" onclick="window.print()">⎙ Print / Save as PDF</button>
+<div class="page">
+
+<div class="cover">
+  <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px">
+    <div>
+      <div class="cover-logo">TITANSAFE</div>
+      <div class="cover-sub">Privacy-Preserving Threat Intelligence — LEA Report</div>
+    </div>
+    <div style="background:#f0f6fd;border:2px solid #2980b9;padding:10px 18px;border-radius:3px;text-align:center">
+      <div style="font-size:9pt;color:#2980b9;font-weight:600;letter-spacing:.04em">OVERALL SEVERITY</div>
+      <div style="font-size:20pt;font-weight:900;color:#2980b9">MEDIUM</div>
+    </div>
+  </div>
+  <div class="cover-rule"></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0">
+    <table class="cover-meta">
+      <tr><td>Brief ID</td><td><b>TB-CASE-ELECTION-2026</b></td></tr>
+      <tr><td>Case ID</td><td><b>CASE-ELECTION-2026</b></td></tr>
+      <tr><td>Generated</td><td><b>2026-09-28 14:31:45 IST</b></td></tr>
+      <tr><td>Merkle Root</td><td><code>3a220fc24c5912fbb670e47e8502809d…</code></td></tr>
+    </table>
+    <table class="cover-meta">
+      <tr><td>Threat Clusters</td><td><b>2</b></td></tr>
+      <tr><td>Identities Revealed</td><td><b>3 of 1035 (0.29%)</b></td></tr>
+      <tr><td>Pseudonyms Seen</td><td><b>40</b></td></tr>
+      <tr><td>Dataset Users</td><td><b>1035</b></td></tr>
+    </table>
+  </div>
+  <div class="cover-notice">
+    This report was generated from the privacy-preserving LEA view only. No raw user data,
+    phone numbers, emails or cryptographic secrets were available to this tool.
+    All evidence is anchored to a Merkle tree whose root is recorded above.
+    Legal mapping is indicative decision support only — confirm with the investigating
+    officer and public prosecutor before filing.
+  </div>
+</div>
+<div class="page-break"></div>
+<div class="section"><div class="sec-title">1. Executive Summary</div>
+<p>The TitanSafe platform analysed the ingested dataset for coordinated-inauthentic-behaviour (CIB)
+signals. <b>2 threat cluster(s)</b> were identified. The highest severity is
+<span style="background:#f0f6fd;color:#2980b9;border:1px solid #2980b9;padding:2px 9px;border-radius:2px;font-size:9.5pt;font-weight:700;letter-spacing:.03em">MEDIUM</span>.</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:12px 0">
+  <div>
+    <h4>Severity Distribution</h4>
+    <div style="display:flex;align-items:center;gap:12px">
+      <svg width="90" height="90" viewBox="0 0 90 90" style="display:block"><path d="M45.0,45.0 L45.0,5.0 A40.0,40.0 0 1,1 45.0,5.0 Z" fill="#2980b9" opacity=".85"/><circle cx="45.0" cy="45.0" r="21.6" fill="white"/><text x="45.0" y="50.0" text-anchor="middle" fill="#333" font-size="16" font-weight="700" font-family="Arial">2</text></svg>
+      <svg width="200" height="60" style="display:block;overflow:visible"><text x="0" y="14" fill="#666" font-size="9" font-family="Arial">CRITICAL</text><rect x="76" y="2" width="0.0" height="12" fill="#c0392b" rx="2" opacity=".85"/><text x="81" y="14" fill="#333" font-size="9" font-family="Arial">0</text><text x="0" y="32" fill="#666" font-size="9" font-family="Arial">HIGH</text><rect x="76" y="20" width="0.0" height="12" fill="#e67e22" rx="2" opacity=".85"/><text x="81" y="32" fill="#333" font-size="9" font-family="Arial">0</text><text x="0" y="50" fill="#666" font-size="9" font-family="Arial">MEDIUM</text><rect x="76" y="38" width="120.0" height="12" fill="#2980b9" rx="2" opacity=".85"/><text x="201" y="50" fill="#333" font-size="9" font-family="Arial">2</text></svg>
+    </div>
+  </div>
+  <div>
+    <h4>CIB Score by Cluster</h4>
+    <svg width="220" height="42" style="display:block;overflow:visible"><text x="0" y="14" fill="#666" font-size="9" font-family="Arial">CL-01 organize</text><rect x="76" y="2" width="140.0" height="12" fill="#2980b9" rx="2" opacity=".85"/><text x="221" y="14" fill="#333" font-size="9" font-family="Arial">0.9</text><text x="0" y="32" fill="#666" font-size="9" font-family="Arial">CL-02 organize</text><rect x="76" y="20" width="140.0" height="12" fill="#2980b9" rx="2" opacity=".85"/><text x="221" y="32" fill="#333" font-size="9" font-family="Arial">0.9</text></svg>
+  </div>
+  <div>
+    <h4>Privacy Ledger</h4>
+    <p style="font-size:9pt">
+      Identities revealed: <b>3</b> of 1035 (0.29%)<br>
+      Pseudonyms seen by LEA: <b>40</b><br>
+      <b>Never disclosed:</b> phone number, e-mail, IP / device data, private messages, contacts / graph, posts outside the flagged clusters
+    </p>
+  </div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin:14px 0">
+<div style="border:1px solid #2980b9;background:#f0f6fd;padding:8px 10px;border-radius:3px"><span style="background:#f0f6fd;color:#2980b9;border:1px solid #2980b9;padding:2px 9px;border-radius:2px;font-size:9.5pt;font-weight:700;letter-spacing:.03em">MEDIUM</span> <b style="font-size:10pt;margin-left:4px">CL-01</b><div style="font-size:8.5pt;color:#555;margin-top:3px">Organized Misinformation</div><div style="font-size:8.5pt;margin-top:2px">Conf: <b>100%</b> · CIB: <b>0.9</b> · Accts: <b>≥10</b></div></div><div style="border:1px solid #2980b9;background:#f0f6fd;padding:8px 10px;border-radius:3px"><span style="background:#f0f6fd;color:#2980b9;border:1px solid #2980b9;padding:2px 9px;border-radius:2px;font-size:9.5pt;font-weight:700;letter-spacing:.03em">MEDIUM</span> <b style="font-size:10pt;margin-left:4px">CL-02</b><div style="font-size:8.5pt;color:#555;margin-top:3px">Organized Misinformation</div><div style="font-size:8.5pt;margin-top:2px">Conf: <b>93%</b> · CIB: <b>0.9</b> · Accts: <b>≥20</b></div></div>
+</div>
+
+<h4>All Clusters — Detail Summary</h4>
+<table style="font-size:9.5pt"><th>Cluster</th><th>Type</th><th>Severity</th><th>Conf</th><th>CIB</th><th>Accounts</th><th>Window</th><th>Flags</th><tr><td>CL-01</td><td>Organized Misinformation</td><td><span style="background:#f0f6fd;color:#2980b9;border:1px solid #2980b9;padding:2px 9px;border-radius:2px;font-size:9.5pt;font-weight:700;letter-spacing:.03em">MEDIUM</span></td><td>100%</td><td>0.9</td><td>≥ 10</td><td>10:00:46 → 10:14:16</td><td>—</td></tr><tr><td>CL-02</td><td>Organized Misinformation</td><td><span style="background:#f0f6fd;color:#2980b9;border:1px solid #2980b9;padding:2px 9px;border-radius:2px;font-size:9.5pt;font-weight:700;letter-spacing:.03em">MEDIUM</span></td><td>93%</td><td>0.9</td><td>≥ 20</td><td>10:01:18 → 10:14:17</td><td>—</td></tr></table>
+</div><div class="page-break"></div><div class="section"><div class="sec-title">2. Signal Analysis</div>
+<p>Signal heatmap showing all CIB indicators across clusters. Red = HIGH (≥70%) · Amber = MEDIUM (≥40%) · Green = LOW.</p>
+<table style="font-size:8.5pt"><tr><th>Cluster</th><th>similarity</th><th>burst</th><th>youth</th><th>hashtag sync</th><th>low reach</th><th>CIB</th><th>Sev</th></tr><tr><td><b>CL-01</b></td><td style="background:#fdf0f0;color:#c0392b;font-weight:700;text-align:center">74%</td><td style="background:#fdf0f0;color:#c0392b;font-weight:700;text-align:center">85%</td><td style="background:#fdf0f0;color:#c0392b;font-weight:700;text-align:center">100%</td><td style="background:#fdf0f0;color:#c0392b;font-weight:700;text-align:center">100%</td><td style="background:#fdf0f0;color:#c0392b;font-weight:700;text-align:center">100%</td><td style="font-weight:700;text-align:center">0.9</td><td><span style="background:#f0f6fd;color:#2980b9;border:1px solid #2980b9;padding:2px 9px;border-radius:2px;font-size:9.5pt;font-weight:700;letter-spacing:.03em">MEDIUM</span></td></tr><tr><td><b>CL-02</b></td><td style="background:#fdf0f0;color:#c0392b;font-weight:700;text-align:center">72%</td><td style="background:#fdf0f0;color:#c0392b;font-weight:700;text-align:center">86%</td><td style="background:#fdf0f0;color:#c0392b;font-weight:700;text-align:center">100%</td><td style="background:#fdf0f0;color:#c0392b;font-weight:700;text-align:center">100%</td><td style="background:#fdf0f0;color:#c0392b;font-weight:700;text-align:center">100%</td><td style="font-weight:700;text-align:center">0.9</td><td><span style="background:#f0f6fd;color:#2980b9;border:1px solid #2980b9;padding:2px 9px;border-radius:2px;font-size:9.5pt;font-weight:700;letter-spacing:.03em">MEDIUM</span></td></tr></table>
+<p style="font-size:8.5pt;color:#666;margin-top:8px">
+  Signal weights: similarity ×0.25 · burst ×0.25 · youth ×0.20 · hashtag_sync ×0.15 · low_reach ×0.15
+</p>
+</div><div class="page-break"></div><div class="section"><div class="sec-title">3. Cluster CL-01 Detail</div>
+<div class="threat-header">
+  <span style="background:#f0f6fd;color:#2980b9;border:1px solid #2980b9;padding:2px 9px;border-radius:2px;font-size:9.5pt;font-weight:700;letter-spacing:.03em">MEDIUM</span>
+  <b style="font-size:12pt;margin-left:8px">CL-01</b>
+  <span style="color:#555;margin-left:8px">ORGANIZED MISINFORMATION</span>
+  <span style="margin-left:auto"><svg width="56" height="56" style="display:inline-block;vertical-align:middle"><path d="M8.6,15.7 A23.0,23.0 0 1,1 8.6,40.3" fill="none" stroke="#e0e0e0" stroke-width="5" stroke-linecap="round"/><path d="M8.6,15.7 A23.0,23.0 0 1,1 17.2,48.3" fill="none" stroke="#c0392b" stroke-width="5" stroke-linecap="round"/><text x="28.0" y="32" text-anchor="middle" fill="#c0392b" font-size="12" font-weight="700" font-family="Arial">90</text></svg></span>
+</div>
+<table class="kv-table">
+  <tr><td>Confidence</td><td><b>100%</b></td>
+      <td>CIB Score</td><td><b>0.9</b></td>
+      <td>Accounts proven</td><td><b>≥ 10</b></td></tr>
+  <tr><td>Active window</td><td colspan="3">2027-03-14 10:00:46 → 2027-03-14 10:14:16 UTC (13.5 min)</td>
+      <td>Flags</td><td><b>none</b></td></tr>
+  
+</table>
+<div class="two-col">
+  <div>
+    <h5>CIB Signals</h5><div style="display:flex;align-items:center;gap:6px;margin:3px 0;font-size:8.5pt"><span style="width:100px;color:#666;flex-shrink:0">similarity</span><div style="background:#e8e8e8;border-radius:3px;height:6px;overflow:hidden;margin:3px 0;flex:1"><div style="width:74.0%;background:#c0392b;height:6px;border-radius:3px"></div></div><span style="width:30px;text-align:right;color:#c0392b;font-weight:700">74%</span></div><div style="display:flex;align-items:center;gap:6px;margin:3px 0;font-size:8.5pt"><span style="width:100px;color:#666;flex-shrink:0">burst</span><div style="background:#e8e8e8;border-radius:3px;height:6px;overflow:hidden;margin:3px 0;flex:1"><div style="width:85.0%;background:#c0392b;height:6px;border-radius:3px"></div></div><span style="width:30px;text-align:right;color:#c0392b;font-weight:700">85%</span></div><div style="display:flex;align-items:center;gap:6px;margin:3px 0;font-size:8.5pt"><span style="width:100px;color:#666;flex-shrink:0">youth</span><div style="background:#e8e8e8;border-radius:3px;height:6px;overflow:hidden;margin:3px 0;flex:1"><div style="width:100.0%;background:#c0392b;height:6px;border-radius:3px"></div></div><span style="width:30px;text-align:right;color:#c0392b;font-weight:700">100%</span></div><div style="display:flex;align-items:center;gap:6px;margin:3px 0;font-size:8.5pt"><span style="width:100px;color:#666;flex-shrink:0">hashtag sync</span><div style="background:#e8e8e8;border-radius:3px;height:6px;overflow:hidden;margin:3px 0;flex:1"><div style="width:100.0%;background:#c0392b;height:6px;border-radius:3px"></div></div><span style="width:30px;text-align:right;color:#c0392b;font-weight:700">100%</span></div><div style="display:flex;align-items:center;gap:6px;margin:3px 0;font-size:8.5pt"><span style="width:100px;color:#666;flex-shrink:0">low reach</span><div style="background:#e8e8e8;border-radius:3px;height:6px;overflow:hidden;margin:3px 0;flex:1"><div style="width:100.0%;background:#c0392b;height:6px;border-radius:3px"></div></div><span style="width:30px;text-align:right;color:#c0392b;font-weight:700">100%</span></div>
+    <h5 style="margin-top:10px">Classification Scores</h5>
+  </div>
+  <div>
+    <h5>Why Flagged</h5><ul style="font-size:8.5pt;margin:0;padding-left:16px"><li>active window 14 min</li><li>100% of accounts <30 days old at first post</li><li>text/target similarity 0.74</li></ul>
+    <h5 style="margin-top:10px">Key Phrases</h5>
+    <p style="font-size:8.5pt">forward to all &nbsp;·&nbsp; before it is deleted</p>
+  </div>
+</div>
+<h5>Indicative Legal Provisions</h5><table style="font-size:8.5pt"><th>IPC</th><th>BNS</th><th>Offence</th><tr><td>505(1)(b)</td><td>353(1)(b)</td><td>Statement likely to cause fear or alarm to the public</td></tr><tr><td>153B</td><td>197</td><td>Imputations/assertions prejudicial to national integration (if targeting a community)</td></tr><tr><td>505(2)</td><td>353(2)</td><td>Statements promoting enmity between classes (if communal framing)</td></tr><tr><td>120B</td><td>61(2)</td><td>Criminal conspiracy (coordinated amplification)</td></tr></table>
+<h5 style="margin-top:10px">Recommended Escalation</h5>
+<ol style="font-size:8.5pt;padding-left:18px"><li>Verify the claim with the responsible authority (e.g. water board / district admin) and publish a rebuttal</li><li>Issue takedown / labelling request to platform; monitor spread for community-directed framing</li><li>Request T1 evidence to assess origin pattern; T2 only if the claim escalates to incitement</li></ol>
+</div><div class="page-break"></div><div class="section"><div class="sec-title">4. Cluster CL-02 Detail</div>
+<div class="threat-header">
+  <span style="background:#f0f6fd;color:#2980b9;border:1px solid #2980b9;padding:2px 9px;border-radius:2px;font-size:9.5pt;font-weight:700;letter-spacing:.03em">MEDIUM</span>
+  <b style="font-size:12pt;margin-left:8px">CL-02</b>
+  <span style="color:#555;margin-left:8px">ORGANIZED MISINFORMATION</span>
+  <span style="margin-left:auto"><svg width="56" height="56" style="display:inline-block;vertical-align:middle"><path d="M8.6,15.7 A23.0,23.0 0 1,1 8.6,40.3" fill="none" stroke="#e0e0e0" stroke-width="5" stroke-linecap="round"/><path d="M8.6,15.7 A23.0,23.0 0 1,1 17.2,48.3" fill="none" stroke="#c0392b" stroke-width="5" stroke-linecap="round"/><text x="28.0" y="32" text-anchor="middle" fill="#c0392b" font-size="12" font-weight="700" font-family="Arial">90</text></svg></span>
+</div>
+<table class="kv-table">
+  <tr><td>Confidence</td><td><b>93%</b></td>
+      <td>CIB Score</td><td><b>0.9</b></td>
+      <td>Accounts proven</td><td><b>≥ 20</b></td></tr>
+  <tr><td>Active window</td><td colspan="3">2027-03-14 10:01:18 → 2027-03-14 10:14:17 UTC (13.0 min)</td>
+      <td>Flags</td><td><b>none</b></td></tr>
+  
+</table>
+<div class="two-col">
+  <div>
+    <h5>CIB Signals</h5><div style="display:flex;align-items:center;gap:6px;margin:3px 0;font-size:8.5pt"><span style="width:100px;color:#666;flex-shrink:0">similarity</span><div style="background:#e8e8e8;border-radius:3px;height:6px;overflow:hidden;margin:3px 0;flex:1"><div style="width:72.0%;background:#c0392b;height:6px;border-radius:3px"></div></div><span style="width:30px;text-align:right;color:#c0392b;font-weight:700">72%</span></div><div style="display:flex;align-items:center;gap:6px;margin:3px 0;font-size:8.5pt"><span style="width:100px;color:#666;flex-shrink:0">burst</span><div style="background:#e8e8e8;border-radius:3px;height:6px;overflow:hidden;margin:3px 0;flex:1"><div style="width:86.0%;background:#c0392b;height:6px;border-radius:3px"></div></div><span style="width:30px;text-align:right;color:#c0392b;font-weight:700">86%</span></div><div style="display:flex;align-items:center;gap:6px;margin:3px 0;font-size:8.5pt"><span style="width:100px;color:#666;flex-shrink:0">youth</span><div style="background:#e8e8e8;border-radius:3px;height:6px;overflow:hidden;margin:3px 0;flex:1"><div style="width:100.0%;background:#c0392b;height:6px;border-radius:3px"></div></div><span style="width:30px;text-align:right;color:#c0392b;font-weight:700">100%</span></div><div style="display:flex;align-items:center;gap:6px;margin:3px 0;font-size:8.5pt"><span style="width:100px;color:#666;flex-shrink:0">hashtag sync</span><div style="background:#e8e8e8;border-radius:3px;height:6px;overflow:hidden;margin:3px 0;flex:1"><div style="width:100.0%;background:#c0392b;height:6px;border-radius:3px"></div></div><span style="width:30px;text-align:right;color:#c0392b;font-weight:700">100%</span></div><div style="display:flex;align-items:center;gap:6px;margin:3px 0;font-size:8.5pt"><span style="width:100px;color:#666;flex-shrink:0">low reach</span><div style="background:#e8e8e8;border-radius:3px;height:6px;overflow:hidden;margin:3px 0;flex:1"><div style="width:100.0%;background:#c0392b;height:6px;border-radius:3px"></div></div><span style="width:30px;text-align:right;color:#c0392b;font-weight:700">100%</span></div>
+    <h5 style="margin-top:10px">Classification Scores</h5>
+  </div>
+  <div>
+    <h5>Why Flagged</h5><ul style="font-size:8.5pt;margin:0;padding-left:16px"><li>active window 13 min</li><li>100% of accounts <30 days old at first post</li><li>text/target similarity 0.72</li></ul>
+    <h5 style="margin-top:10px">Key Phrases</h5>
+    <p style="font-size:8.5pt">breaking</p>
+  </div>
+</div>
+<h5>Indicative Legal Provisions</h5><table style="font-size:8.5pt"><th>IPC</th><th>BNS</th><th>Offence</th><tr><td>505(1)(b)</td><td>353(1)(b)</td><td>Statement likely to cause fear or alarm to the public</td></tr><tr><td>153B</td><td>197</td><td>Imputations/assertions prejudicial to national integration (if targeting a community)</td></tr><tr><td>505(2)</td><td>353(2)</td><td>Statements promoting enmity between classes (if communal framing)</td></tr><tr><td>120B</td><td>61(2)</td><td>Criminal conspiracy (coordinated amplification)</td></tr></table>
+<h5 style="margin-top:10px">Recommended Escalation</h5>
+<ol style="font-size:8.5pt;padding-left:18px"><li>Verify the claim with the responsible authority (e.g. water board / district admin) and publish a rebuttal</li><li>Issue takedown / labelling request to platform; monitor spread for community-directed framing</li><li>Request T1 evidence to assess origin pattern; T2 only if the claim escalates to incitement</li></ol>
+</div><div class="page-break"></div><div class="section"><div class="sec-title">5. Tier-1 Evidence (Redacted Posts)</div><h4>CL-01 — 19 pseudonymous accounts</h4><table style="font-size:8.5pt"><th>Pseudonym</th><th>Time</th><th>Redacted Text</th><th>Hashtags</th><th>PII Flags</th><tr><td>PSN-7bfeb24c7f…</td><td>10:00:46</td><td>They are stealing the election in Gomtinagar! Booth 57 machines rigged. Forward …</td><td>evmfraud voterigged</td><td>—</td></tr><tr><td>PSN-682967b325…</td><td>10:01:29</td><td>They are stealing the election in Vikaspur! Booth 45 machines rigged. Forward to…</td><td>evmfraud voterigged</td><td>—</td></tr><tr><td>PSN-30c9277f56…</td><td>10:01:46</td><td>They are stealing the election in Devnagar! Booth 7 machines rigged. Forward to …</td><td>evmfraud voterigged</td><td>—</td></tr><tr><td>PSN-fc18b74910…</td><td>10:03:13</td><td>They are stealing the election in Noorpur! Booth 57 machines rigged. Forward to …</td><td>evmfraud voterigged</td><td>—</td></tr><tr><td>PSN-024abf7862…</td><td>10:03:27</td><td>They are stealing the election in Gomtinagar! Booth 33 machines rigged. Forward …</td><td>evmfraud voterigged</td><td>—</td></tr><tr><td>PSN-6bbe2e66a6…</td><td>10:04:11</td><td>They are stealing the election in Lakhanpur! Booth 62 machines rigged. Forward t…</td><td>evmfraud voterigged</td><td>—</td></tr><tr><td>PSN-000eb8c144…</td><td>10:04:21</td><td>They are stealing the election in Chandpur! Booth 45 machines rigged. Forward to…</td><td>evmfraud voterigged</td><td>—</td></tr><tr><td>PSN-f0fb8198b0…</td><td>10:06:05</td><td>They are stealing the election in Rampura! Booth 18 machines rigged. Forward to …</td><td>evmfraud voterigged</td><td>—</td></tr><tr><td>PSN-697be0f39a…</td><td>10:07:09</td><td>They are stealing the election in Chandpur! Booth 45 machines rigged. Forward to…</td><td>evmfraud voterigged</td><td>—</td></tr><tr><td>PSN-e080130be7…</td><td>10:07:20</td><td>They are stealing the election in Chandpur! Booth 12 machines rigged. Forward to…</td><td>evmfraud voterigged</td><td>—</td></tr></table><h4>CL-02 — 21 pseudonymous accounts</h4><table style="font-size:8.5pt"><th>Pseudonym</th><th>Time</th><th>Redacted Text</th><th>Hashtags</th><th>PII Flags</th><tr><td>PSN-1b4b439322…</td><td>10:01:18</td><td>BREAKING: EVMs in Booth 3 District Vikaspur pre-loaded! Our observer saw it. For…</td><td>evmfraud voterigged</td><td>—</td></tr><tr><td>PSN-0e809fdca0…</td><td>10:02:11</td><td>BREAKING: EVMs in Booth 12 District Rampura pre-loaded! Our observer saw it. For…</td><td>evmfraud voterigged</td><td>—</td></tr><tr><td>PSN-f98ca25e37…</td><td>10:03:03</td><td>BREAKING: EVMs in Booth 24 District Sultanpur pre-loaded! Our observer saw it. F…</td><td>evmfraud voterigged</td><td>—</td></tr><tr><td>PSN-547bf7e8e9…</td><td>10:03:54</td><td>BREAKING: EVMs in Booth 91 District Sultanpur pre-loaded! Our observer saw it. F…</td><td>evmfraud voterigged</td><td>—</td></tr><tr><td>PSN-2f7b018607…</td><td>10:04:29</td><td>BREAKING: EVMs in Booth 57 District Sultanpur pre-loaded! Our observer saw it. F…</td><td>evmfraud voterigged</td><td>—</td></tr><tr><td>PSN-8470d56f72…</td><td>10:04:35</td><td>BREAKING: EVMs in Booth 57 District Lakhanpur pre-loaded! Our observer saw it. F…</td><td>evmfraud voterigged</td><td>—</td></tr><tr><td>PSN-9937dd1f9e…</td><td>10:05:38</td><td>BREAKING: EVMs in Booth 24 District Sultanpur pre-loaded! Our observer saw it. F…</td><td>evmfraud voterigged</td><td>—</td></tr><tr><td>PSN-640d376587…</td><td>10:06:37</td><td>BREAKING: EVMs in Booth 33 District Gomtinagar pre-loaded! Our observer saw it. …</td><td>evmfraud voterigged</td><td>—</td></tr><tr><td>PSN-501393493d…</td><td>10:06:46</td><td>BREAKING: EVMs in Booth 45 District Rampura pre-loaded! Our observer saw it. For…</td><td>evmfraud voterigged</td><td>—</td></tr><tr><td>PSN-f0860a756f…</td><td>10:07:08</td><td>BREAKING: EVMs in Booth 91 District Rampura pre-loaded! Our observer saw it. For…</td><td>evmfraud voterigged</td><td>—</td></tr></table></div><div class="page-break"></div><div class="section"><div class="sec-title">6. Tier-2 Identities (Disclosed Under Court Order)</div><p>3 identities disclosed. All bound to Merkle-anchored identity commitments.</p><table style="font-size:9.5pt"><th>Pseudonym</th><th>Handle</th><th>User ID</th><th>Region</th><th>Created</th><tr><td>PSN-7bfeb24c7f…</td><td>truth_news227</td><td>ue0034</td><td>RJ</td><td>2027-03-08</td></tr><tr><td>PSN-682967b325…</td><td>expose_desk664</td><td>ue0051</td><td>BR</td><td>2027-03-08</td></tr><tr><td>PSN-30c9277f56…</td><td>truth_news439</td><td>ue0065</td><td>MP</td><td>2027-03-07</td></tr></table></div><div class="page-break"></div><div class="section"><div class="sec-title">7. Disclosure Requests Log</div><table style="font-size:9.5pt"><th>ID</th><th>Tier</th><th>Status</th><th>Requester</th><th>Purpose</th><th>Reasons / Expires</th><tr><td>REQ-001</td><td>T0</td><td>DISCLOSED</td><td>LEA:Cyber-Cell-Gandhinagar</td><td></td><td>2027-09-28</td></tr><tr><td>REQ-002</td><td>T1</td><td>DISCLOSED</td><td>LEA:Cyber-Cell-Gandhinagar</td><td></td><td>2026-10-28</td></tr><tr><td>REQ-003</td><td>T2</td><td>DISCLOSED</td><td>LEA:Cyber-Cell-Gandhinagar</td><td></td><td>2026-10-13</td></tr></table></div><div class="page-break"></div><div class="section"><div class="sec-title">8. Tamper-Evident Audit Chain</div><p>7 entries. Verify integrity with <code>TitanSafe verify &lt;out&gt;</code>.</p><table style="font-size:8.5pt"><th>#</th><th>Time (UTC)</th><th>Actor</th><th>Action</th><th>Hash</th><tr><td>1</td><td>2026-09-28 09:01:45</td><td>PLATFORM</td><td>ATTESTATION_PUBLISHED</td><td>b17a5213bbc006eb…</td></tr><tr><td>2</td><td>2026-09-28 09:01:45</td><td>LEA:Cyber-Cell-Gandhinagar</td><td>REQUEST</td><td>c95775be52feb1c1…</td></tr><tr><td>3</td><td>2026-09-28 09:01:45</td><td>auto-policy</td><td>APPROVED_AND_DISCLOSED</td><td>e7e4bd2f17d3c073…</td></tr><tr><td>4</td><td>2026-09-28 09:01:45</td><td>LEA:Cyber-Cell-Gandhinagar</td><td>REQUEST</td><td>1e358f5c0ac097ac…</td></tr><tr><td>5</td><td>2026-09-28 09:01:45</td><td>Nodal-Officer-A</td><td>APPROVED_AND_DISCLOSED</td><td>743c376baae3e0fc…</td></tr><tr><td>6</td><td>2026-09-28 09:01:45</td><td>LEA:Cyber-Cell-Gandhinagar</td><td>REQUEST</td><td>91f1e5a482637c0c…</td></tr><tr><td>7</td><td>2026-09-28 09:01:45</td><td>Nodal-Officer-A,Grievance-Offi</td><td>APPROVED_AND_DISCLOSED</td><td>616d60243a2895d9…</td></tr></table></div><div class="page-break"></div><div class="section"><div class="sec-title">9. Process References</div><ul><li>BNSS s.94 (CrPC s.91): notice for production of documents/records</li><li>IT Act s.79(3)(b) + IT Rules 2021 r.3(1)(d): takedown notice to intermediary</li><li>IT Act s.69A: blocking order via MeitY (only if content is severe and persistent)</li></ul><p style='font-size:8.5pt;color:#888;margin-top:8px'>Legal mapping is indicative decision support only. Confirm all provisions with the investigating officer and public prosecutor before filing.</p></div>
+</div>
+</body>
+</html>

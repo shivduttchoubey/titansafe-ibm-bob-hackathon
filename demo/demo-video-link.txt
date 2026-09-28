@@ -4,12 +4,5 @@ Recommended platforms: YouTube (unlisted), Loom, IBM Box.
 
 Format:
   Title: TitanSafe — Privacy-Preserving LEA Threat Intelligence Demo
-  URL:   [paste your video URL here]
-  Duration: [e.g., 3:45]
-
-The video should demonstrate:
-  1. Running `TitanSafe demo` on at least two datasets
-  2. Opening the LEA dashboard (dashboard.html) and scrolling through sections
-  3. The collapsible cluster cards, signal heatmap, evidence search filter
-  4. Opening threat_report.html and showing Print → Save as PDF
-  5. Running `TitanSafe verify` to show all proofs pass
+  URL:   https://youtu.be/KyMrIdTwhEg
+  
