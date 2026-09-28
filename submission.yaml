@@ -7,7 +7,7 @@ team:
   track: "AI"
   lead:
     name: "Narvi"
-    email: ""
+    email: "narvi@example.com"
   members:
     - name: "Narvi"
       email: ""
