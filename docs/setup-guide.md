@@ -1,79 +1,116 @@
 # Setup Guide
 
-> **This file is read by the automated evaluation pipeline. Be precise and complete.**
+> **This file is read by the automated evaluation pipeline. Follow these steps exactly.**
 
 ## Prerequisites
 
-Before you begin, ensure you have the following installed:
-
-- [ ] [e.g., Python 3.11+]
-- [ ] [e.g., Node.js 18+]
-- [ ] [e.g., Docker Desktop]
-- [ ] [e.g., An IBM Cloud account with watsonx.ai access]
+- [ ] Python 3.10 or higher (`python --version`)
+- [ ] pip (`pip --version`)
+- [ ] pytest for running the test suite (`pip install pytest`)
+- [ ] A modern browser (Chrome, Firefox, Edge) to view the dashboard and PDF report
+- [ ] **No IBM Cloud account required** — TitanSafe is zero-dependency, pure Python
 
 ## Environment Variables
 
-Copy `.env.example` to `.env` and fill in the values:
+TitanSafe has **no required environment variables** — all cryptographic keys are
+generated in-memory per run (as they would be on a real platform).
+
+There is no `.env` file needed to run the demo or tests.
+
+If you wish to integrate the detection or ZK modules into a larger system that uses
+IBM watsonx.ai or a database, copy and adapt `src/.env.example`:
 
 ```bash
-cp .env.example .env
+cp src/.env.example .env
+# Edit .env with your values
 ```
-
-| Variable | Description | Required |
-|---|---|---|
-| `WATSONX_API_KEY` | Your IBM watsonx.ai API key | Yes |
-| `WATSONX_PROJECT_ID` | Your watsonx.ai project ID | Yes |
-| `DATABASE_URL` | PostgreSQL connection string | Yes |
-| `SLACK_WEBHOOK_URL` | Slack webhook for alerts | No |
 
 ## Installation
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/[your-org]/[your-repo].git
-cd [your-repo]
+git clone https://github.com/[your-org]/TitanSafe.git
+cd TitanSafe
 
-# 2. Install backend dependencies
-[your command — e.g.: pip install -r requirements.txt]
+# 2. Install the package in editable mode (no external deps — installs only pytest extras)
+pip install -e ".[dev]"
 
-# 3. Install frontend dependencies (if applicable)
-[your command — e.g.: cd frontend && npm install]
-
-# 4. Set up the database (if applicable)
-[your command — e.g.: python manage.py migrate]
+# --- OR --- install only the runtime (no test deps)
+pip install -e .
 ```
 
-## Running the Application
+> **Note:** `pyproject.toml` declares zero runtime dependencies.
+> The only optional dependency is `pytest` for the test suite.
+
+## Running the Demo
 
 ```bash
-# Start the backend
-[your command — e.g.: uvicorn app.main:app --reload]
+# Run the default dataset (incitement + harassment + misinfo)
+python -m TitanSafe.cli demo --out out
 
-# Start the frontend (in a separate terminal, if applicable)
-[your command — e.g.: cd frontend && npm run dev]
+# Also generate the A4 print-ready PDF report
+python -m TitanSafe.cli demo --out out --pdf
+
+# Verify all ZK proofs, Merkle anchors, identity bindings and audit chain
+python -m TitanSafe.cli verify out
 ```
 
-The application will be available at: `http://localhost:[PORT]`
+Open `out/dashboard.html` in any browser for the full LEA dashboard.
+Open `out/threat_report.html` in any browser and use **Print → Save as PDF**.
+
+## Mock Datasets
+
+```bash
+# List all available datasets
+python -m TitanSafe.cli datasets
+
+# Election day misinformation (EVM tampering + voter suppression)
+python -m TitanSafe.cli demo --dataset election_disinfo --out out_election --pdf
+
+# Communal riot incitement (imminent weapons + religious misinfo)
+python -m TitanSafe.cli demo --dataset communal_riot --out out_riot --pdf
+
+# Journalist doxxing (address/phone leak + brigading campaign)
+python -m TitanSafe.cli demo --dataset journalist_doxxing --out out_doxxing --pdf
+
+# Override random seed for reproducibility
+python -m TitanSafe.cli demo --dataset default --seed 42
+```
 
 ## Running Tests
 
 ```bash
-[your test command — e.g.: pytest tests/ -v]
+# Full test suite (6 tests, ~30 s — pure-Python EC proofs are slow by design)
+pytest tests/ -v
+
+# Quick smoke test
+pytest tests/test_TitanSafe.py::test_demo_end_to_end -v
 ```
 
-## Quick Demo (Optional)
+Expected output: `6 passed` with no warnings.
 
-If you have a demo script or sample data to showcase the project quickly:
+## Output Files Reference
 
-```bash
-[e.g.: python demo/seed_demo_data.py]
-[e.g.: open http://localhost:8000/demo]
-```
+After running `demo`, the output directory contains:
+
+| File | Description |
+|---|---|
+| `dashboard.html` | Single-page scrollable LEA dashboard — open in browser |
+| `threat_report.html` | A4 print-ready PDF report — open in browser, use Print → Save as PDF |
+| `threat_brief.md` | Markdown threat brief with escalation steps and BNS legal provisions |
+| `attestation.json` | Public T0: Merkle root, cluster metadata, ZK proofs (no personal data) |
+| `tier1_evidence.json` | T1 pseudonymous redacted evidence with Merkle inclusion proofs |
+| `tier2_identities.json` | T2 real identities revealed under simulated court order |
+| `audit.json` | Tamper-evident hash-chained audit log |
+| `requests.json` | All disclosure requests with approval/denial decisions |
+| `threat_brief.json` | Machine-readable threat brief |
 
 ## Troubleshooting
 
 | Issue | Solution |
 |---|---|
-| [e.g., `ModuleNotFoundError`] | [e.g., Run `pip install -r requirements.txt` again] |
-| [e.g., Database connection refused] | [e.g., Ensure PostgreSQL is running: `docker compose up db`] |
-| [e.g., watsonx.ai 401 error] | [e.g., Check `WATSONX_API_KEY` in your `.env` file] |
+| `ModuleNotFoundError: No module named 'TitanSafe'` | Run `pip install -e .` from the repo root |
+| `UnicodeEncodeError` on Windows | Ensure your terminal uses UTF-8: `chcp 65001` in cmd, or use PowerShell |
+| Tests timeout | The EC proofs are intentionally slow in pure Python — this is expected (~30 s) |
+| Dashboard shows blank page | Open `dashboard.html` directly in browser (file://) — no server needed |
+| `python -m TitanSafe demo` fails | Use `python -m TitanSafe.cli demo` (note the `.cli` suffix) |

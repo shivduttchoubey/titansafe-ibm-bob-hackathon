@@ -1,26 +1,29 @@
 # Screenshots
 
-Place your application screenshots in this folder.
+Place dashboard and report screenshots here.
 
-## Naming Convention
+## Suggested screenshots
 
-Name your screenshots sequentially so they appear in logical order:
+| Filename | What to capture |
+|---|---|
+| `01-overview.png` | Dashboard Overview section — stat cards + donut chart + exposure bar |
+| `02-threats.png` | Threats section — a CRITICAL cluster card expanded showing signal gauges |
+| `03-signals.png` | Signals section — CIB score bar chart + heatmap table |
+| `04-timeline.png` | Timeline section — scrollable event timeline + request log |
+| `05-evidence.png` | Evidence section — evidence search filter + post table |
+| `06-pdf-report.png` | threat_report.html open in browser showing the cover page |
+| `07-verify.png` | Terminal showing `TitanSafe verify out` with all 4 PASS lines |
+| `08-datasets.png` | Terminal showing `TitanSafe datasets` listing all 4 datasets |
 
-  01-landing-page.png       ← First thing a user sees
-  02-main-feature.png       ← Your primary feature in action
-  03-output-or-results.png  ← The result / value delivered
-  04-additional-feature.png ← Any other notable screen
+## How to take screenshots
 
-## Requirements
+```bash
+# Generate all four datasets
+python -m TitanSafe.cli demo --out out --pdf
+python -m TitanSafe.cli demo --dataset election_disinfo --out out_election --pdf
+python -m TitanSafe.cli demo --dataset communal_riot    --out out_riot     --pdf
+python -m TitanSafe.cli demo --dataset journalist_doxxing --out out_doxxing --pdf
 
-- Minimum: 3 screenshots
-- Format: PNG or JPG
-- Show the application running with real (or realistic mock) data
-- Avoid screenshots of empty states or placeholder data
-- Captions are not required but appreciated
-
-## Tips
-
-- Use a consistent browser window size across all screenshots
-- Highlight key UI elements with arrows/circles if helpful (use any image editor)
-- Include a screenshot showing IBM technology integration if applicable
+# Open out/dashboard.html in browser and capture each section
+# Open out/threat_report.html for the PDF report screenshot
+```

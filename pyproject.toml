@@ -1,0 +1,16 @@
+[project]
+name = "TitanSafe"
+version = "0.1.0"
+description = "Privacy-preserving abstraction layer between social media platforms and law enforcement (DPDP-aligned)"
+requires-python = ">=3.10"
+dependencies = []
+[project.optional-dependencies]
+dev = ["pytest"]
+web = ["flask>=3.0"]
+all = ["flask>=3.0", "pypdf>=4.0", "python-docx>=1.1"]
+
+[project.scripts]
+TitanSafe     = "TitanSafe.cli:main"
+TitanSafe-web = "TitanSafe.app:main"
+[tool.setuptools]
+packages = ["TitanSafe", "TitanSafe.zt"]

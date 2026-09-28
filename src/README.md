@@ -1,47 +1,42 @@
 # Source Code
 
-Place all your project's source code in this folder.
+All TitanSafe source code lives in the `TitanSafe/` package at the repo root.
 
-## Structure Guidelines
+## Package layout
 
-Organize your code logically. Here are common patterns — use whatever fits
-your project:
-
-### Web Application
 ```
-src/
-  backend/        ← API server code
-  frontend/       ← UI code
-  shared/         ← Shared utilities/types
-```
-
-### Data / AI Project
-```
-src/
-  data/           ← Data ingestion / preprocessing
-  models/         ← ML model code
-  api/            ← Serving layer
-  notebooks/      ← Jupyter notebooks (exploration)
-```
-
-### CLI / Script-based Tool
-```
-src/
-  cli/            ← CLI entry points
-  lib/            ← Core logic
-  utils/          ← Helpers
+TitanSafe/              # Python package (importable as `TitanSafe`)
+├── __init__.py
+├── cli.py               # CLI: demo / verify / datasets subcommands
+├── mock.py              # 4 named mock datasets with organic false-positive traps
+├── detect.py            # CIB detection (union-find + burst/similarity/youth signals)
+├── classify.py          # Phrase-weighted threat classifier (incitement/harassment/misinfo)
+├── abstraction.py       # Vault: T0/T1/T2 disclosure, pseudonyms, ZK proofs, Merkle tree
+├── workflow.py          # Case lifecycle: request loop, policy dispatch, retention
+├── policy.py            # DPDP-aligned gate checks (purpose, legal basis, approvers)
+├── audit.py             # Tamper-evident SHA-256 hash-chained audit log
+├── legal.py             # Indicative IPC → BNS mapping + BNSS/IT-Act process references
+├── brief.py             # Threat brief generator (Markdown + JSON, LEA view only)
+├── dashboard.py         # Single-page scrollable HTML dashboard
+├── pdf.py               # Print-ready A4 HTML report
+└── zt/                  # Zero-knowledge crypto primitives (from QBOM-ZT)
+    ├── ec.py            # NIST P-256 curve arithmetic
+    ├── zk.py            # Pedersen commitments, Schnorr range/linkage proofs
+    └── merkle.py        # Sorted Merkle tree + inclusion proofs
 ```
 
-## Important Files to Include
+## Running from source
 
-- `requirements.txt` or `package.json` — dependency manifest
-- `.env.example` — template for environment variables (NEVER commit `.env`)
-- Any database migration files
-- Configuration files
+```bash
+# From the repo root
+pip install -e .
+python -m TitanSafe.cli demo --out out --pdf
+python -m TitanSafe.cli verify out
+pytest tests/ -v
+```
 
-## What NOT to Include in src/
+## No `.env` required
 
-- `.env` files with real secrets
-- Large binary files (use Git LFS or link externally)
-- `node_modules/` or `venv/` (these are in `.gitignore`)
-- Build artifacts (`dist/`, `build/`, `__pycache__/`)
+TitanSafe has zero runtime dependencies and no required environment variables.
+All cryptographic keys are generated in-memory per run.
+See `.env.example` if you want to extend the system to use IBM watsonx.ai or a database.
