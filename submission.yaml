@@ -6,11 +6,11 @@ team:
   name: "TitanSafe"
   track: "AI"
   lead:
-    name: "Narvi"
-    email: ""
+    name: "Shiv Dutt Choubey"
+    email: "shivduttchoubey@gmail.com"
   members:
-    - name: "Narvi"
-      email: ""
+    - name: "Narvin C Saju"
+      email: "narvinsaju@gmail.com""
 
 submission:
   title: "TitanSafe — Privacy-Preserving Social Media Threat Intelligence"
